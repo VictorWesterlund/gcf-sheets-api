@@ -64,6 +64,7 @@ func getSheetData(sheet *RawSheetData) string {
 
 // Create JSON response from sheet data
 func httpResponse(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json");
 	fmt.Fprint(w, getSheetData(sheetDataToStruct()))
 }
 
